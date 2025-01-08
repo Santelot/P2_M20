@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playbook-P2-M20</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 20px;
+        }
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+        .dropdown {
+            margin-bottom: 20px;
+        }
+        .dropdown select {
+            font-size: 1em;
+            padding: 5px;
+        }
+        .activity {
+            margin-bottom: 20px;
+        }
+        .banner {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .content {
+            display: none;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        span[style*="color: red;"] {
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        function updateActivities() {
+            const selectedTime = document.getElementById('class-time').value;
+
+            // Control dinámico de actividades y pasos
+            const activity2 = document.getElementById('activity-2');
+            const step4Activity3 = document.querySelector('#activity-3 .step-4');
+
+            if (selectedTime === '45') {
+                if (activity2) activity2.style.display = 'none';
+                if (step4Activity3) step4Activity3.style.display = 'table-row';
+            } else if (selectedTime === '40') {
+                if (activity2) activity2.style.display = 'none';
+                if (step4Activity3) step4Activity3.style.display = 'none';
+            } else {
+                if (activity2) activity2.style.display = 'block';
+                if (step4Activity3) step4Activity3.style.display = 'table-row';
+            }
+
+            // Actualización del texto de duración
+            document.getElementById('selected-time').innerText = `Tiempo efectivo de clase: ${selectedTime} minutos`;
+        }
+
+        function toggleContent(id) {
+            const content = document.getElementById(id);
+            content.style.display = content.style.display === "none" ? "block" : "none";
+        }
+    </script>
+</head>
+<body>
+    <div class="header">
+        <h1>Playbook-P2-M20</h1>
+    </div>
+    <div class="container">
+        <div class="dropdown">
+            <label for="class-time">Tiempo efectivo de Clase:</label>
+            <select id="class-time" onchange="updateActivities()">
+                <option value="50">50 minutos</option>
+                <option value="45">45 minutos</option>
+                <option value="40">40 minutos</option>
+            </select>
+        </div>
+        <h2 id="selected-time" class="time-title">Tiempo efectivo de clase: 50 minutos</h2>
+        
+		
+		<div id="activity-0" class="activity">
+    <div class="banner" onclick="toggleContent('activity_0_content')">
+        <div class="title">🔍 Actividad 0: Revisión de Misión</div>
+        <hr style="border: none; border-top: 1px solid #e0e0e0; margin: 5px 0;">
+        <div class="subtitle" style="margin-top: 5px; font-size: 0.9em; color: #e0e0e0;">
+            Verificación de dispositivos y materiales antes de iniciar.
+        </div>
+    </div>
+    <div id="activity_0_content" class="content">
+        <table>
+            <tr style="border-bottom: 1px solid #ddd; background-color: #f9f9f9;">
+                <th style="width: 50%; padding: 10px; text-align: left; border-right: 1px solid #ddd;">Acción</th>
+                <th style="width: 50%; padding: 10px; text-align: left;">Diálogo Maestro</th>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border-right: 1px solid #ddd; vertical-align: top;">
+                    <strong>Paso 1:</strong> Proyectar (Diapositiva 1): Revisar que todos los dispositivos estén encendidos, conectados a internet, y que Scratch esté abierto en modo "Crear". Confirmar que las Magic Tablets estén disponibles y que el espacio esté organizado para trabajar cómodamente.
+                </td>
+                <td style="padding: 10px; vertical-align: top;">
+                    No se utiliza diálogo con los estudiantes en esta etapa.
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div id="activity-1" class="activity" data-time="2">
+    <div class="banner" onclick="toggleContent('activity_1_content')">
+        <div class="title">🎉 Actividad 1: Saludo y Ritual Gnius Club ⏰ Tiempo: 2 minutos</div>
+        <hr style="border: none; border-top: 1px solid #e0e0e0; margin: 5px 0;">
+        <div class="subtitle" style="margin-top: 5px; font-size: 0.9em; color: #e0e0e0;">
+            Bienvenida y presentación de los objetivos del día.
+        </div>
+    </div>
+    <div id="activity_1_content" class="content">
+        <table>
+            <tr style="border-bottom: 1px solid #ddd; background-color: #f9f9f9;">
+                <th style="width: 50%; padding: 10px; text-align: left; border-right: 1px solid #ddd;">Acción</th>
+                <th style="width: 50%; padding: 10px; text-align: left;">Diálogo Maestro</th>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border-right: 1px solid #ddd; vertical-align: top;">
+                    <strong>Paso 1 (0.5 minutos):</strong> Proyectar (Diapositiva 2): Dar la bienvenida a los estudiantes con entusiasmo.
+                </td>
+                <td style="padding: 10px; vertical-align: top;">
+                    "¡Hola, Genios! 🌟 ¡Bienvenidos a esta nueva aventura de narración creativa en Scratch! Hoy vamos a convertirnos en autores y directores de nuestras propias historias animadas. ¿Listos para imaginar, programar y crear mundos increíbles?”
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border-right: 1px solid #ddd; vertical-align: top;">
+                    <strong>Paso 2 (0.5 minutos):</strong> Proyectar (Diapositiva 3): Pedir a los estudiantes que indiquen cómo se sienten usando poses relacionadas con la narración.
+                </td>
+                <td style="padding: 10px; vertical-align: top;">
+                    "Antes de empezar, ¡quiero saber cómo se sienten hoy! Si están listos para escribir historias increíbles, levanten las manos como si sostuvieran un libro mágico 📖. Si están pensando en personajes geniales, crucen los brazos y pongan cara de escritores concentrados ✍️. ¡A ver esas poses llenas de creatividad!"
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border-right: 1px solid #ddd; vertical-align: top;">
+                    <strong>Paso 3 (0.5 minutos):</strong> Proyectar (Diapositiva 4): Guiar a los estudiantes a realizar el ritual juntos.
+                </td>
+                <td style="padding: 10px; vertical-align: top;">
+                    "¡Ahora hagamos nuestro ritual Gnius! Juntamos nuestras manos y decimos: ‘¡Gracias por estar aquí, Genios! Hoy vamos a dar vida a nuestras historias en Scratch. ¡A crear mundos increíbles juntos!’"
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border-right: 1px solid #ddd; vertical-align: top;">
+                    <strong>Paso 4 (0.5 minutos):</strong> Proyectar (Diapositiva 5): Introducir los objetivos de la misión.
+                </td>
+                <td style="padding: 10px; vertical-align: top;">
+                    "Hoy tenemos dos grandes <span style="color: red; font-weight: bold;">objetivos</span>: 1. Aprender a usar Scratch para crear historias animadas que capturen nuestra imaginación. 2. Divertirnos inventando personajes, diálogos, movimientos y efectos sonoros para contar historias únicas. ¡Será un día lleno de creatividad y mucha magia!"
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div id="activity-2" class="activity" data-time="4">
+    <div class="banner" onclick="toggleContent('activity_2_content')">
+        <div class="title">💡 Actividad 2: Brain Vitamin ⏰ Tiempo: 4 minutos</div>
+        <hr style="border: none; border-top: 1px solid #e0e0e0; margin: 5px 0;">
+        <div class="subtitle" style="margin-top: 5px; font-size: 0.9em; color: #e0e0e0;">
+            Ejercicio para activar el cerebro mediante narración y movimiento.
+        </div>
+    </div>
+    <div id="activity_2_content" class="content">
+        <table>
+            <tr style="border-bottom: 1px solid #ddd; background-color: #f9f9f9;">
+                <th style="width: 50%; padding: 10px; text-align: left; border-right: 1px solid #ddd;">Acción</th>
+                <th style="width: 50%; padding: 10px; text-align: left;">Diálogo Maestro</th>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border-right: 1px solid #ddd; vertical-align: top;">
+                    <strong>Paso 1 (1 minuto):</strong> Proyectar (Diapositiva 6): Explicar que combinarán movimiento y narración para activar el cerebro.
+                </td>
+                <td style="padding: 10px; vertical-align: top;">
+                    "¡Hola, Genios narradores! Vamos a activar nuestros cerebros para crear historias increíbles. Hoy combinaremos <span style="color: red; font-weight: bold;">movimiento</span> y <span style="color: red; font-weight: bold;">narración</span> para preparar nuestras mentes para la programación en Scratch. ¿Listos para crear nuestra propia <span style="color: red; font-weight: bold;">secuencia</span> de historia?"
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border-right: 1px solid #ddd; vertical-align: top;">
+                    <strong>Paso 2 (1.5 minutos):</strong> Proyectar (Diapositiva 7): Dar las instrucciones para la creación de la secuencia de la historia con movimientos.
+                </td>
+                <td style="padding: 10px; vertical-align: top;">
+                    "¡Ahora vamos a crear nuestra propia <span style="color: red; font-weight: bold;">secuencia</span> de historia con <span style="color: red; font-weight: bold;">movimientos</span>! Piensen en una pequeña aventura con un personaje. ¿Qué <span style="color: red; font-weight: bold;">acciones</span> realizará? Por ejemplo, puede: Caminar por un bosque, saltar un río, girar al ver una sorpresa, etc. Piensen en al menos tres movimientos y luego muéstrenmelos. ¡A crear historias con el cuerpo!"
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border-right: 1px solid #ddd; vertical-align: top;">
+                    <strong>Paso 3 (1.5 minutos):</strong> Proyectar (Diapositiva 8): Pedir a los estudiantes que realicen su secuencia de movimientos y describan la historia.
+                </td>
+                <td style="padding: 10px; vertical-align: top;">
+                    "¡Impresionante, Genios! Ahora, uno por uno, muéstrenme su <span style="color: red; font-weight: bold;">secuencia</span> de movimientos mientras describen brevemente la aventura que representa. ¡Compartan sus historias y prepárense para hacerlas aún más increíbles en Scratch!"
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div id="activity-3" class="activity" data-time="30">
+    <div class="banner" onclick="toggleContent('activity_3_content')">
+        <div class="title">🚀 Actividad 3: Challenge ⏰ Tiempo: 30 minutos</div>
+        <hr style="border: none; border-top: 1px solid #e0e0e0; margin: 5px 0;">
+        <div class="subtitle" style="margin-top: 5px; font-size: 0.9em; color: #e0e0e0;">
+            Desafío para crear historias animadas en Scratch.
+        </div>
+    </div>
+    <div id="activity_3_content" class="content">
+        <table>
+            <tr style="border-bottom: 1px solid #ddd; background-color: #f9f9f9;">
+                <th style="width: 50%; padding: 10px; text-align: left; border-right: 1px solid #ddd;">Acción</th>
+                <th style="width: 50%; padding: 10px; text-align: left;">Diálogo Maestro</th>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border-right: 1px solid #ddd; vertical-align: top;">
+                    <strong>Paso 1 (1 minuto):</strong> Proyectar (Diapositiva 9): Presentar el desafío y los tres niveles (Rookie, Master, Hacker), explicando sus objetivos.
+                </td>
+                <td style="padding: 10px; vertical-align: top;">
+                    "¡Genios narradores, ha llegado el momento de dar vida a sus historias! 🚀 Hoy usaremos Scratch para convertirnos en verdaderos creadores de mundos animados. Tenemos tres niveles de desafío: Rookie, Master y Hacker, cada uno con una misión especial para que exploren su creatividad al máximo. ¡A elegir su aventura!"
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border-right: 1px solid #ddd; vertical-align: top;">
+                    <strong>Paso 2 (2 minutos):</strong> Proyectar (Diapositiva 10): Describir todos los pasos y metas específicas de cada nivel al mismo tiempo.
+                </td>
+                <td style="padding: 10px; vertical-align: top;">
+                    """Aquí tienen los detalles de cada desafío para que elijan su camino:<br><br>
+                    <strong>Nivel Rookie: 'El Inicio de una Aventura'</strong><br>
+                    <span style="color: red; font-weight: bold;">Objetivo:</span> Crear una escena donde un personaje principal narre un evento simple mientras realiza movimientos básicos.<br>
+                    <span style="color: red; font-weight: bold;">Instrucciones:</span> Elige un fondo y un personaje de la biblioteca de Scratch. Haz que el personaje se presente usando el bloque ‘decir’. Añade movimientos básicos al personaje (moverse adelante, girar o saltar). Usa un bloque de sonido para reproducir música o un efecto mientras habla.<br>
+                    <span style="color: red; font-weight: bold;">Condiciones:</span> La animación debe incluir un diálogo, movimientos y un sonido. El personaje debe permanecer dentro del fondo.<br>
+                    <span style="color: red; font-weight: bold;">Consejo:</span> Usa ‘esperar’ para sincronizar diálogo y movimientos.<br><br>
+
+                    <strong>Nivel Master: 'Conversaciones con un Amigo'</strong><br>
+                    <span style="color: red; font-weight: bold;">Objetivo:</span> Crear una escena donde dos personajes conversen y reaccionen entre sí con animaciones.<br>
+                    <span style="color: red; font-weight: bold;">Instrucciones:</span> Elige un fondo y dos personajes. Programa un diálogo entre los personajes usando bloques de ‘decir’. Añade animaciones a los personajes mientras hablan (moverse, cambiar de disfraz o saltar). Usa un efecto de sonido para marcar un momento clave en la conversación.<br>
+                    <span style="color: red; font-weight: bold;">Condiciones:</span> Ambos personajes deben tener un diálogo y acciones visibles. Al menos un personaje debe cambiar de disfraz o moverse.<br>
+                    <span style="color: red; font-weight: bold;">Consejo:</span> Usa ‘esperar’ para alternar los diálogos.<br><br>
+
+                    <strong>Nivel Hacker: 'La Historia Animada'</strong><br>
+                    <span style="color: red; font-weight: bold;">Objetivo:</span> Crear una narración completa que combine escenas, animaciones y efectos especiales.<br>
+                    <span style="color: red; font-weight: bold;">Instrucciones:</span> Diseña un proyecto con al menos tres escenas diferentes. Usa al menos dos personajes que interactúen y realicen acciones sincronizadas. Añade efectos visuales y sonidos únicos en cada escena. Incluye un desenlace visual atractivo.<br>
+                    <span style="color: red; font-weight: bold;">Condiciones:</span> El proyecto debe incluir al menos tres fondos, dos personajes con animaciones y sonidos en cada escena. Las transiciones deben ser claras y fluidas.<br>
+                    <span style="color: red; font-weight: bold;">Consejo:</span> Planifica primero la historia, decide las acciones y usa ‘cambiar fondo’ y ‘esperar’ para una narrativa fluida."""
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border-right: 1px solid #ddd; vertical-align: top;">
+                    <strong>Paso 3 (20 minutos):</strong> Proyectar (Diapositiva 11): Temporizador de 20 minutos con recordatorio de los niveles y ejemplos visuales para inspirar.
+                </td>
+                <td style="padding: 10px; vertical-align: top;">
+                    "¡Es su turno, Genios de la narración! Tienen 20 minutos para escribir y programar sus historias en Scratch. Dejen volar su imaginación y conviertan sus ideas en mundos animados. ¡La magia de la creatividad está en sus manos!"
+                </td>
+            </tr>
+            <tr class="step-4">
+                <td style="padding: 10px; border-right: 1px solid #ddd; vertical-align: top;">
+                    <strong>Paso 4 (5 minutos):</strong> Proyectar (Diapositiva 12): Temporizador de 5 minutos para ajustes finales, con recordatorio visual de los detalles a revisar.
+                </td>
+                <td style="padding: 10px; vertical-align: top;">
+                    "¡Grandes creadores, es momento de pulir sus historias! Tienen 5 minutos para probar y ajustar sus proyectos. Asegúrense de que el diálogo, los movimientos y los sonidos estén sincronizados y que su narración sea impactante. ¡A perfeccionar sus mundos!”
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border-right: 1px solid #ddd; vertical-align: top;">
+                    <strong>Paso 5 (2 minutos):</strong> Proyectar (Diapositiva 13): Reflexionar sobre los aprendizajes y retos enfrentados durante el desafío.
+                </td>
+                <td style="padding: 10px; vertical-align: top;">
+                    "¡Impresionante trabajo, Genios narradores! Reflexionemos juntos: ¿Qué aprendieron al programar sus historias? ¿Qué fue lo más desafiante y cómo lo superaron? ¿Qué consejo le darían a otros creadores de historias? ¡Compartan sus reflexiones y celebremos juntos sus logros!"
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border-right: 1px solid #ddd; vertical-align: top;">
+                    <strong>Paso 6 (1 minuto):</strong> Proyectar (Diapositiva 14): Revisar los objetivos específicos del desafío con los estudiantes.
+                </td>
+                <td style="padding: 10px; vertical-align: top;">
+                    "Hagamos un último chequeo: ¿Crearon historias con un diálogo claro? ¿Animaron a sus personajes con movimientos y sonidos? ¡Estoy seguro de que superaron todas las expectativas! ¡Felicidades, Genios!”
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div id="activity-4" class="activity" data-time="10">
+    <div class="banner" onclick="toggleContent('activity_4_content')">
+        <div class="title">🤝 Actividad 4: Team Gnius ⏰ Tiempo: 10 minutos</div>
+        <hr style="border: none; border-top: 1px solid #e0e0e0; margin: 5px 0;">
+        <div class="subtitle" style="margin-top: 5px; font-size: 0.9em; color: #e0e0e0;">
+            Trabajo colaborativo para enriquecer historias animadas.
+        </div>
+    </div>
+    <div id="activity_4_content" class="content">
+        <table>
+            <tr style="border-bottom: 1px solid #ddd; background-color: #f9f9f9;">
+                <th style="width: 50%; padding: 10px; text-align: left; border-right: 1px solid #ddd;">Acción</th>
+                <th style="width: 50%; padding: 10px; text-align: left;">Diálogo Maestro</th>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border-right: 1px solid #ddd; vertical-align: top;">
+                    <strong>Paso 1 (0,5 minutos):</strong> Proyectar (Diapositiva 15): Mostrar instrucciones para formar equipos pequeños.
+                </td>
+                <td style="padding: 10px; vertical-align: top;">
+                    "¡Genios narradores, es hora de unir nuestras mentes creativas! 🌟 Formen grupos de dos o tres autores para compartir sus historias y darnos ideas geniales. Juntos podemos hacer que cada narración sea aún más mágica."
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border-right: 1px solid #ddd; vertical-align: top;">
+                    <strong>Paso 2 (0,5 minutos):</strong> Proyectar (Diapositiva 16): Temporizador de 30 segundos para formar los equipos.
+                </td>
+                <td style="padding: 10px; vertical-align: top;">
+                    "¡Tienen 30 segundos para unirse a sus compañeros de historia! Busquen sus equipos rápidamente y prepárense para una lluvia de ideas creativas. ¡Equipos listos, historias listas!"
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border-right: 1px solid #ddd; vertical-align: top;">
+                    <strong>Paso 3 (0,5 minutos):</strong> Proyectar (Diapositiva 17): Explicar la importancia de usar las Magic Tablets para registrar ideas clave.
+                </td>
+                <td style="padding: 10px; vertical-align: top;">
+                    "¡Autores, saquen sus Magic Tablets! 📝 Anoten todas las ideas geniales que les inspiren de las historias de sus compañeros. Recuerden que cada detalle cuenta para hacer que la narración sea más impactante. ¡Sus notas serán la clave para mejorar!"
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border-right: 1px solid #ddd; vertical-align: top;">
+                    <strong>Paso 4 (0,5 minutos):</strong> Proyectar (Diapositiva 18): Temporizador de 30 segundos para recoger las Magic Tablets.
+                </td>
+                <td style="padding: 10px; vertical-align: top;">
+                    "¡Tienen 30 segundos para tomar sus Magic Tablets y prepararse para inspirar y ser inspirados! ¡Manos a la obra, genios de la narración!"
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border-right: 1px solid #ddd; vertical-align: top;">
+                    <strong>Paso 5 (4 minutos):</strong> Proyectar (Diapositiva 19): Explicar el método <span style="color: red; font-weight: bold;">Think-Pair-Share</span> y guiar a los equipos para reflexionar y colaborar.
+                </td>
+                <td style="padding: 10px; vertical-align: top;">
+                    "¡Vamos a usar el poder del <span style="color: red; font-weight: bold;">Think-Pair-Share</span> para darle vida a nuestras historias! Primero, piensen individualmente en cómo mejorarían la historia de su compañero. Luego, compartan esas ideas y elijan las mejores. ¡Finalmente, trabajen juntos para implementar esos cambios y hacer que sus narraciones sean aún más mágicas!"
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border-right: 1px solid #ddd; vertical-align: top;">
+                    <strong>Paso 6 (3 minutos):</strong> Proyectar (Diapositiva 20): Instrucciones para la colaboración activa con un temporizador de 3 minutos.
+                </td>
+                <td style="padding: 10px; vertical-align: top;">
+                    "¡Manos a la obra, autores! ⏱️ Tienen 3 minutos para aplicar las mejoras que discutieron. Recuerden que cada detalle cuenta para que su historia sea aún más emocionante y cautivadora. ¡A trabajar en equipo con toda su magia creativa!”
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border-right: 1px solid #ddd; vertical-align: top;">
+                    <strong>Paso 7 (1 minuto):</strong> Proyectar (Diapositiva 21): Preguntas para reflexionar sobre la colaboración y los resultados.
+                </td>
+                <td style="padding: 10px; vertical-align: top;">
+                    "¡Reflexionemos sobre esta aventura creativa! ¿Qué aprendieron trabajando juntos? ¿Cómo hicieron que las historias de sus compañeros fueran aún más increíbles? ¿Cuál fue la mejor idea que surgió de esta colaboración? ¡Compartan su sabiduría y celebremos el poder de la narración colectiva!"
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div id="activity-5" class="activity" data-time="4">
+    <div class="banner" onclick="toggleContent('activity_5_content')">
+        <div class="title">🏅 Actividad 5: Honor the Lab ⏰ Tiempo: 4 minutos</div>
+        <hr style="border: none; border-top: 1px solid #e0e0e0; margin: 5px 0;">
+        <div class="subtitle" style="margin-top: 5px; font-size: 0.9em; color: #e0e0e0;">
+            Reflexión final y organización del espacio de trabajo.
+        </div>
+    </div>
+    <div id="activity_5_content" class="content">
+        <table>
+            <tr style="border-bottom: 1px solid #ddd; background-color: #f9f9f9;">
+                <th style="width: 50%; padding: 10px; text-align: left; border-right: 1px solid #ddd;">Acción</th>
+                <th style="width: 50%; padding: 10px; text-align: left;">Diálogo Maestro</th>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border-right: 1px solid #ddd; vertical-align: top;">
+                    <strong>Paso 1 (0.5 minutos):</strong> Proyectar (Diapositiva 22): Mostrar los objetivos iniciales y discutir con los estudiantes si se cumplieron.
+                </td>
+                <td style="padding: 10px; vertical-align: top;">
+                    "¡Genios narradores, llegó el momento de celebrar nuestras increíbles historias! 🌟 Revisemos juntos nuestros <span style="color: red; font-weight: bold;">objetivos</span>: ¿Usamos Scratch para crear historias animadas? ¿Exploramos personajes, diálogos, movimientos y sonidos para contar historias únicas? ¡Estoy seguro de que cada uno hizo un trabajo mágico! ¿Cómo se sienten al respecto?"
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border-right: 1px solid #ddd; vertical-align: top;">
+                    <strong>Paso 2 (0.5 minutos):</strong> Felicitar a los estudiantes por su participación y esfuerzo, sin destacar a individuos.
+                </td>
+                <td style="padding: 10px; vertical-align: top;">
+                    "Hoy, todos fueron increíbles creadores de historias. Dieron vida a mundos imaginarios, exploraron emociones a través de la programación y trabajaron en equipo como verdaderos genios. ¡Estoy muy orgulloso de todos los autores que hay aquí! ¡Un aplauso para su creatividad y dedicación!"
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border-right: 1px solid #ddd; vertical-align: top;">
+                    <strong>Paso 3 (3 minutos):</strong> Proyectar (Diapositiva 23): Dar instrucciones para recoger los materiales utilizados y organizar el espacio de trabajo.
+                </td>
+                <td style="padding: 10px; vertical-align: top;">
+                    "Ahora, como verdaderos creadores, debemos honrar nuestro espacio de trabajo. Recojan sus Magic Tablets y todos los materiales que usamos, y dejen el aula lista para nuevas aventuras. ¡Recuerden que cuidar nuestro espacio es parte de la magia de la narración!"
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+    </div>
+</body>
+</html>
